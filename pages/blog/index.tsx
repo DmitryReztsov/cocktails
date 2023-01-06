@@ -1,13 +1,13 @@
 import Head from 'next/head'
 
-export default function Categories() {
+export default function Blog() {
 
   return (
     <>
       <Head>
-        <title>Категории</title>
+        <title>Блог</title>
       </Head>
-      1
+      Блог
     </>
   )
 }

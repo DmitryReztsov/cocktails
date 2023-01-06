@@ -1,16 +1,5 @@
-.layout {
-  height: 100%;
-}
-
-.menu {
-  justify-content: flex-end;
-}
-
-.logo {
-  color: white;
-}
-
-.content {
-  padding: 25px 50px;
-  overflow: auto;
+.card {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

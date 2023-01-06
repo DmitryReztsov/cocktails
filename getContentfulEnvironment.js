@@ -1,16 +1,14 @@
-import {Space} from "contentful-management";
-import { EnvironmentGetter } from "contentful-typescript-codegen"
+const contentfulManagement = require("contentful-management")
+const { loadEnvConfig } = require("@next/env")
 
-import contentfulManagement from "contentful-management"
+module.exports = function() {
 
-const getContentfulEnvironment: EnvironmentGetter = () => {
+  loadEnvConfig(process.env.PWD);
   const contentfulClient = contentfulManagement.createClient({
-    accessToken: process.env.CF_MANAGEMENT_TOKEN!,
+    accessToken: process.env.CF_MANAGEMENT_TOKEN,
   })
 
   return contentfulClient
-    .getSpace(process.env.CF_SPACE_ID!)
-    .then((space: Space )=> space.getEnvironment('master'))
+    .getSpace(process.env.CF_SPACE_ID)
+    .then(space => space.getEnvironment('master'))
 }
-
-export default getContentfulEnvironment;
